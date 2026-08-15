@@ -1,15 +1,12 @@
-function MovieGrid({ movies }) {
-  return (
-    <div>
-      <h3>Movies Found: {movies.length}</h3>
+import React from "react";
+import { MovieCard } from "./MovieCard";
 
-      {movies.map((movie) => (
-        <div key={movie.imdbID}>
-          <strong>{movie.Title}</strong> ({movie.Year})
-        </div>
+export function MovieGrid({ movies }) {
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))", gap: "30px", margin: "20px 0" }}>
+      {movies.map((item) => (
+        <MovieCard key={item.id} movie={item} />
       ))}
     </div>
   );
 }
-
-export default MovieGrid;
