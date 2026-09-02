@@ -1,15 +1,14 @@
-function MovieGrid({ movies }) {
-  return (
-    <div>
-      <h3>Movies Found: {movies.length}</h3>
+import React from "react";
+import MovieCard from "./MovieCard";
 
-      {movies.map((movie) => (
-        <div key={movie.imdbID}>
-          <strong>{movie.Title}</strong> ({movie.Year})
+export default function MovieGrid({ movies }) {
+  return (
+    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 my-2">
+      {movies.map((item) => (
+        <div className="col" key={item.imdbID}> 
+          <MovieCard movie={item} />
         </div>
       ))}
     </div>
   );
 }
-
-export default MovieGrid;
