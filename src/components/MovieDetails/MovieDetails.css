@@ -1,0 +1,39 @@
+body{
+    background:#071018;
+    color:white;
+}
+
+h1{
+    font-weight:700;
+}
+
+img{
+    border-radius:20px;
+}
+
+.badge{
+    font-size:.9rem;
+    padding:8px 14px;
+}
+
+.container{
+    max-width:1200px;
+}
+
+.row{
+    background:#111B24;
+    padding:30px;
+    border-radius:25px;
+    border:1px solid #20384E;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+p{
+    color:#cbd5e1;
+}
+
+h4{
+    margin-top:25px;
+    margin-bottom:15px;
+    color:#00C2FF;
+}

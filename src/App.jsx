@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import MovieGrid from "./components/MovieGrid";
 import Pagination from "./components/Pagination";
+import Navbar from "./components/NavBar";
+import MovieDetails from "./components/MovieDetails/MovieDetail"
+
+import './styles/App.css';
 
 const API_KEY = "59ffe773";
 
@@ -15,6 +19,7 @@ function App() {
   const [totalResults, setTotalResults] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   // ==========================
   // FETCH MOVIES
@@ -81,8 +86,8 @@ function App() {
   // UI
   // ==========================
   return (
-    <div className="container py-4">
-
+    <div className="container bg-success-subtle py-4 bg">
+      <Navbar onSearch={handleSearch} />
       <h1 className="text-center mb-4">
         Movie Search App
       </h1>
@@ -101,8 +106,11 @@ function App() {
         </div>
       )}
 
-      {!loading && !error && (
-        <MovieGrid movies={movies} />
+      {!loading && !error && (selectedMovie ? (
+          <MovieDetails imdbID={selectedMovie} onBack={() => setSelectedMovie(null)}/>
+        ) : (
+          <MovieGrid movies={movies} onViewDetails={setSelectedMovie}/>
+        )
       )}
 
       <Pagination
